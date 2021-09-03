@@ -34,3 +34,13 @@ Route::group(['middleware' => ['status', 'auth']], function(){
             ->names('blog.user.index');
     });
     //---------
+
+    //Disabled side - in that moment don`t work yet
+    $groupeData = [
+       'namespace' => 'Blog\Disabled',
+        'prefix' => 'disabled',
+    ];
+    Route::group($groupeData, function () {
+        Route::resource('index', 'MainController')
+            ->names('blog.disabled.index');
+    });
