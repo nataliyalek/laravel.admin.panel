@@ -20,6 +20,10 @@ Route::group(['middleware' => ['status', 'auth']], function(){
     Route::group($groupData, function (){
 
         Route::resource('index', 'MainController')->names('blog.admin.index');
+        Route::resource('orders', 'OrderController')->names('blog.admin.order');
+        Route::get('/orders/change/{id}', 'OrderController@change')->name('blog.admin.order.change');
+        Route::post('/orders/save/{id}', 'OrderController@save')->name('blog.admin.order.save');
+        Route::get('/orders/forcedestroy/{id}', 'OrderController@forcedestroy')->name('blog.admin.order.forcedestroy');
     });
 });
 
